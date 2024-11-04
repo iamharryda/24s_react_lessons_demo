@@ -1,25 +1,42 @@
+import { useState } from "react";
 import "./App.css";
 import Card from "./Card";
-import { useState } from "react";
+import personsData from "./data/personsData";
 
 function App() {
-  const [person, setPerson] = useState({
-    firstName: "Emilia",
-    title: "Developer",
-    age: 52,
-    animal: "fox"
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
 
   return (
     <>
-      <header><h1>Demo app for practicing React</h1></header>
+      <header>
+        <h1>Demo app for practicing React</h1>
+      </header>
       <main>
-        <Card firstName={person.firstName} title={person.title} age={person.age} animal={person.animal} />
-        <Card firstName="Margit" title="CEO" age="29" animal="fox" />
-        <Card firstName="Karin" title="Designer" age="45" animal="fox" />
-        <Card firstName="Kati" title="Developer" age="25" animal="fox" />
-        <Card firstName="John" title="Developer" age="25" animal="fox" />
-        <Card firstName="Jane" title="Developer" age="25" animal="fox" />
+        {isLoggedIn ? (
+          <div>
+            <p>This is the list</p>
+            {personsData.map((whatever) => (
+              <Card
+                key={whatever.id}
+                firstName={whatever.firstName}
+                title={whatever.title}
+                age={whatever.age}
+                animal={whatever.animal}
+              />
+            ))}
+
+            <button onClick={handleLogin}>Log in</button>
+          </div>
+        ) : (
+          <div>
+            <p>Please log in to see the list</p>{" "}
+            <button onClick={handleLogin}>Log in</button>
+          </div>
+        )}
       </main>
     </>
   );
