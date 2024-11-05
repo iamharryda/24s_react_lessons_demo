@@ -1,15 +1,28 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
   text-align: center;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  color: salmon;
+}
+
 main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;  
-  padding-top:1rem;
+  gap: 1rem;
 }
 
 .card {
@@ -23,14 +36,4 @@ main {
 .card:hover {
   box-shadow: 0 0 15px #333;
   cursor: pointer;
-}
-
-
-header {
-  display: flex;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  background-color: #333;
-  color:salmon
 }
