@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "./Card";
+import Card from "./components/Card";
 import personsData from "./data/personsData";
 import "./App.css";
 
@@ -7,7 +7,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
+    setIsLoggedIn((prevState) => !prevState);
   };
 
   return (
