@@ -1,4 +1,6 @@
-function Card({ firstName, title, age, animal }) {
+import Button from './Button'
+
+function Card({ firstName, title, age, animal, click }) {
 
   return (
     <div className="card">
@@ -6,6 +8,7 @@ function Card({ firstName, title, age, animal }) {
       <p>Title: {title}</p>
       <p>Age: {age}</p>
       <p>Animal: {animal}</p>
+      <Button text='Click me' click={click} />
     </div>
   );
 }

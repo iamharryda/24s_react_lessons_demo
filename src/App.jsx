@@ -2,21 +2,30 @@ import { useState } from "react";
 import Card from "./components/Card";
 import personsData from "./data/personsData";
 import "./App.css";
+import Button from "./components/Button";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = () => {
+  const toggleLogin = () => {
     setIsLoggedIn((prevState) => !prevState);
   };
+
+  const handleClick = () => {
+    console.log('I am Clicked')
+  }
 
   return (
     <>
       <header>
         <h1>Demo app for practicing React</h1>
-        <button onClick={handleLogin}>
-          {isLoggedIn ? "Log out" : "Log in"}
-        </button>
+        <Button
+          text={isLoggedIn ? "Log out" : "Log in"}
+          click={toggleLogin}
+        />
+
+
+
       </header>
       <main>
         {isLoggedIn ? (
@@ -30,6 +39,8 @@ function App() {
                   title={whatever.title}
                   age={whatever.age}
                   animal={whatever.animal}
+                  click={handleClick}
+
                 />
               ))}
             </div>
