@@ -11,8 +11,8 @@ function App() {
     setIsLoggedIn((prevState) => !prevState);
   };
 
-  const handleClick = () => {
-    console.log('I am Clicked')
+  const handleClick = (id) => {
+    console.log('I am Clicked', id)
   }
 
   return (
@@ -39,7 +39,7 @@ function App() {
                   title={whatever.title}
                   age={whatever.age}
                   animal={whatever.animal}
-                  click={handleClick}
+                  onClick={() => handleClick(whatever.id)}
 
                 />
               ))}
